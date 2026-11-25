@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- KeepAlive stays false. After the helper tears the utun down it must stay down. UserName stays absent so launchd runs this daemon as root. AbandonProcessGroup stays false so launchd reaps wireguard-go and any stuck docker client when the helper exits. -->
+	<key>Label</key>
+	<string>dev.whalias.tunnel</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/sh</string>
+		<string>/usr/local/libexec/whalias/helper.sh</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<false/>
+	<key>AbandonProcessGroup</key>
+	<false/>
+	<key>StandardOutPath</key>
+	<string>/var/log/whalias/tunnel.log</string>
+	<key>StandardErrorPath</key>
+	<string>/var/log/whalias/tunnel.log</string>
+</dict>
+</plist>

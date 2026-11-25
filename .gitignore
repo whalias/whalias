@@ -1,0 +1,12 @@
+# Local research, spike logs, run output, keys, and machine-specific files.
+/local-history/
+
+# Editor and agent state
+/.cursor/
+
+# macOS Finder
+.DS_Store
+
+# Live-check output and generated keys. The script is tracked.
+/test/macos/*
+!/test/macos/live-checks.sh
